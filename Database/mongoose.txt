@@ -1,0 +1,100 @@
+--> task : create database and two collections. with atleast two entrys
+
+const mongoose = require("mongoose");
+
+--> creating connection and database : 
+mongoose.connect("mongodb://localhost:27017/database_name" , {useNewUrlParser : true , useUnifiedTopology : true}) ;		// database creation.
+
+--> creating schema . for first collection.										// schema is the datastructure for collection.	 
+
+const mydatabaseSchema = new mongoose.Schema({
+    name : String , 
+    cgpa : Number ,
+    alloted_course : String , 
+    appeared : Boolean 
+});
+
+--> creating model (its a class so first later in capital)		
+
+const Student_info = new mongoose.model("Student_info" , mydatabaseSchema);				// model is the collection creation. basically its a class.
+
+--> creating documents for student_info collection.
+--> documents are simple objects of the class collection.
+
+var doc1 = new Student_info({
+    name : "shreyas pradeep patil" , 
+    cgpa : 7.5 ,
+    alloted_course : "information security" ,
+    appeared : false
+});
+
+var doc2 = new Student_info({
+    name : "Amruta Anil Gavali" , 
+    cgpa : 9.5 , 
+    alloted_course : "Sketcher",
+    appeared : true
+});
+
+
+Student_info.collection.insertMany([doc1 , doc2] , (err) => {
+    console.log("universe is busy raising price of stocks you have invested");
+
+});
+
+____________________________________________________________________________________
+
+
+Reading the collection ... model_name.find((err , array_name)=>{})	
+
+Personal_info.find((err , person) => {      // person is the array of documents in collection.
+    
+    if(err)
+        console.log(err);
+    
+    else {
+
+       // mongoose.connection.close();        // closing the collection.
+        person.forEach((i) => {
+            console.log(i.name);
+        });
+    }
+});
+
+___________________________________________________________________________________
+
+
+// update data : update , updateMany , updateOne --> // model_name.update___{{filter} ,{ update } , callback}
+
+Personal_info.updateMany({salary : {"$gt": 0}} , {name : "Shreyas Pradeep Patil"} , (err) => {
+    if(err)
+        console.log(err)
+    else{
+        Personal_info.find((err , person) => {
+            if(!err){
+                person.forEach((i)=>{
+                    console.log(i.name);
+                });
+            }
+        });
+    }  
+        
+});   
+
+___________________________________________________________________________________
+
+// Delete a document :	deleteOne , deleteMany , delete... 
+
+Personal_info.deleteOne({name: "shreyas pradeep patil"} , (err) => {
+	console.log(err);							model.deleteOne({filter} , callback);
+});
+  
+___________________________________________________________________________________
+
+
+-->  relationships and embedding Documents : 
+     lets mix two collection , Student_info and Personal_info.
+     we want to include student info in personal_info... then first 
+     update  personal_info schema and add entry and give it a type as student_info schema.
+     then create its model(previous wont update.)
+     create document and in new entry , enter the document from student_info you wanna add . insert!
+     done! 

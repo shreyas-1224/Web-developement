@@ -1,0 +1,129 @@
+
+SQL : structured query language , its prespecified and not flexible.
+NoSQL : not a structured query language , its flexible. automatically insert Null in blank space
+	
+MySQL : SQL , Table structure , scales vertically.
+MongoDB : NoSQL , Document structure , Horizontally scalable
+
+______________________________________________________________
+
+CRUD IN SQL : create , read , update , destroy . 
+
+CREATing table in SQL 
+
+CREATE TABLE table_name(
+	
+	varible_name DATATYPE NOT NULL 			// not null is optional , if its not null , data entered can not be empty
+	PRIMARY KEY(variable_name)	 		// Primary keys must contain UNIQUE values, and cannot contain NULL values.
+)
+
+
+INSERTING into table ; (UPDATE) 
+
+INSERT INTO table_name(parameters)
+VALUES(values for parameters ) 				// no need to use (parameters) if values for all colums are being inserting.
+
+
+______________ example of creating and inserting into database ________________
+
+CREATE TABLE TB(
+	NAME STRING NOT NULL , 
+	MIS INT NOT NULL , PRIMARY KEY 
+	SALARY MONEY 
+)
+
+INSERT INTO TB
+VALUES( "shreyas" , 3100 , 270000)
+VALUES( "Pooja" , 3101 )		// salary not entered . as its not a not null , it ll work. (NEED TO WRITE INSERT INTO.. EVERYTIME)
+
+________________________________________________
+
+READing from a table ; READ
+
+SELECT * FROM table_name : 		// * will print everything
+SELECT variable_name , ... FROM table_name 		// will print only selected colums. 
+
+ex : 
+
+SELECT * FROM TB 			// will print entire table 
+SELECT NAME , SALARY FROM TB 		// will print shreyas , 270000 and Pooja null ; 
+
+__________
+
+what if we want to print with respect to select id or name ? --> 
+
+SELECT * FROM DB 
+WHERE NAME == "shreyas"			// use condition after where . 	it will print entire line from shreyas. 
+
+SELECE NAME FROM DB 
+WHERE MIS >= 3100			// will print shreyas and Pooja.
+
+_______________________________________________________________________
+
+UPDATing table values ; 
+
+UPDATE table_name				ex : UPDATE TB 
+SET column_name = value				     SET SALARY = 300000 
+WHERE condition .... 				     WHERE NAME == POOJA
+
+what if we want to update the table ? ex : ADD , DELETE , MODIFY columns ? ---> ALTER 
+1) ADD : 
+	ALTER TABLE TB
+	ADD PARTNER STRING		// ADD COLUMN DATATYPE
+	
+2) DELETE : (DROP)
+	ALTER TABLE TB
+	DROP SALARY 			// DELETE THE SALARY COLUMN
+
+______________________________________________________________________
+
+DELETing table values ;
+
+DELETE FROM table_name
+WHERE condion 
+
+_______________________________________________________	SQL Relationship _____________________________
+
+Foreign key : 
+
+A FOREIGN KEY is a field (or collection of fields) in one table, that refers to the PRIMARY KEY in another table.
+The table with the foreign key is called the child table, and the table with the primary key is called the referenced or parent table.
+
+
+/* now , creating child table where foreign keys will be primary keys of other tables */
+
+create TABLE ORDERS(
+    
+    ID INT NOT NULL , 
+    NAME_ID INT NOT NULL,
+    SHOP_ID INT NOT NULL,
+    PRIMARY KEY(ID),
+    FOREIGN KEY(NAME_ID) REFERENCES CUSTOMER_ID(ID)       /* NAME_ID HERE IS PRIMARY ID OF CUSTCUSTOMER_ID TABLE */        //id are primary in both
+    FOREIGN KEY(SHOP_ID) REFERENCES PRODUCT_ID(ID)	  /* SHOP_ID HERE IS PRIMARY ID OF PRODUCT_ID TABLE */	
+
+)
+
+so , this table will have its own id table(primary) and two foreign keys name_id and shop_id which are primary keys of respective tables.
+
+
+SQL INNER JOIN : The INNER JOIN keyword selects records that have matching values in both tables.
+
+SELECT column_name(s)
+FROM table1
+INNER JOIN table2
+ON table1.column_name = table2.column_name;
+___________
+
+SELECT CUSTOMER_ID.name , PRODUCT_ID.name , PRODUCT_ID.price , CUSTOMER_ID.ADDRESS
+FROM (( ORDERS
+INNER JOIN CUSTOMER_ID ON ORDERS.NAME_ID = CUSTOMER_ID.ID )
+INNER JOIN PRODUCT_ID ON ORDERS.SHOP_ID = PRODUCT_ID.ID);					// no need to use bracket for just oone joint table.
+
+___________________________________________________________________________________________
+
+
+
+
+
+
+

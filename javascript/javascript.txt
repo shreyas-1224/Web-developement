@@ -1,0 +1,118 @@
+alert("") : alert
+colsole.log() : display in console . 
+prompt("") : alert with an input and stores it.
+typeof() : tells the type of datatype
+
+___________________ variable _________________
+
+structure : var variable = value ; 
+let varible_name : scope : within that block
+const variable_name : scope : troughout the code , cant not be changed . 
+
+_____________________ string __________________________
+
+string.length : gives the length ; 
+string.slice(a , b) : slice the string from index a to index b-1 ;
+string.toUpperCase() : uppercases everything
+string.toLowerCase() : lowercases everything
+strings wont change ever after these processes . You can store the output in other strings . 
+
+____________________________ javascript Function _________________________
+structure : 
+
+function name(parameters){
+						// no return type need to be mentioned. 
+	}			
+	
+
+Math.random() : will give a random number from 0 to 0.9999999..
+Math.floor(n) : round to last integer number . 
+
+************************** TIP ************************* 
+var a = 4 ; 
+var b = a++ ; 
+
+value of a is 5 as it is increamented and value of b is 4 as it is asigned to a before it is increamented .  
+
+
+______________________________________________________________________
+
+best way to use the javascript in html is at the end . 
+methods are the functions and require brackets . Properties do not require any brackets.
+
+how to get elements ? 				// values are alwats a string . in DOM.
+
+1. document.getElementsByTagname("_") : all of that tag gives array 
+   to change the property , use : document.getElementsByTagname("__")[index].style.color = "red";
+
+2. document.getElementsByClassName("__") : array wrt class name; 
+
+3. document.getElementById("__") : returns single item
+
+4.  document.querySelector("__") // ex : h1 or #id_name or .class_name or ( ul li a ) // hierarchical order. gives only first if many present.
+4 a document.querySelectorAll("__") : gives all , to choose one , use index.
+
+_______________________________________________________________________
+
+Text manipulation using DOM
+to change the text : document.getElementsByClass("__")[index],innerHTML = "new text " ;   // innerHTML gives whats between the tag . 
+
+document.quertSelector("h1").textcontent : gives only text content . 		// we can also change style , .textcontent = "<em>good bye</em>"
+
+_______________________________________________________________________
+
+Manipulating attribute using DOM   // everything that goes inside the tag except tag name is attribute
+
+document.querySelector("a").getAttribute("href") : will give the href (its singular , use index for many).
+document.querySelector("a").setAttribute("href" , "https://www.instagram.com");				// to change the attribute
+
+_______________________________________________________________________
+
+Events :  target.addEventListener(type, listener) 		// others are also there but they are optional . listener is the function.
+to listen to a key , add event listener to entire document. 
+
+// to assign event to a button 
+
+var button = document.querySelector(".btn").addEventListner("click" , function(){
+		// write function here
+	})
+
+// to assign event to a key
+
+document.addEventListener("keydown" , function(event){
+	//write code here. event.key gives the key pressed.
+	})
+ 
+
+_____________________________________ Javascript Object _______________
+
+var bellBoy1 = {
+	name : "timmy ",
+	age  : 19,
+	method_job : function(){
+		// this is the way to declare a method for object.
+	}
+}
+
+// CONSTRUCTOR FUNCTION
+
+function Housekeeper(data , experience , salary){
+	this.data = data ; 
+	this.experience = experience ; 
+	this.salary = salary ; 
+	console.log(salary);
+	this.method_job = function(){
+		// this is the method. 
+		console.log(`his name is ${data} and his salary is ${salary} `);
+	}
+}
+
+var bb1 = new Housekeeper("shreyas"  , 3 , 240000);
+bb1.method_job();
+
+_____________________________________ add animation ___________________
+
+set animation in css as a differant class. and make a new function for animation in which assign this 
+class to the active element.
+
+

@@ -1,0 +1,16 @@
+*{
+    box-sizing: border-box;
+}
+
+
+img{
+    border: 2px red solid;
+    display: block;
+    margin: auto;
+    width: 20%;
+    padding: auto;
+}
+
+p{
+    color: red;
+}

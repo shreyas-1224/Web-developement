@@ -1,0 +1,9 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+.sunny{
+    color: #f5cc57;
+}

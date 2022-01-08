@@ -1,0 +1,65 @@
+REPL - nodejs feature 
+	read , eval , print , loop ; // debug js code and experiment
+				     // cmd of nodejs
+
+Core modules : modules are same as js libraries. 
+to import module , use require('module_name'); and assign it to variable
+
+
+Synchronous : 
+
+const fs = require('fs'); 	// file system module. 
+fs.writeFileSync("note.txt" , "welcome to nodejs"); 	// create and override
+							// if not present , create					// if present , override the data
+fs.readFileSync("note.txt" , "utf8"); 			// read , utf8 is optional, if its not there , read data will be in buffer.	
+____________________________________________________________________________________
+
+Asynchronous : 
+
+fs.writeFile(path , content , call_back function );		// call_back function is necessary in asynchronous core. 
+								// call_back function are function which are passed as an argument.
+
+fs.writeFile("shreyas.txt" , "welcome to async" , function(err){
+	console.log(err);						// arrow function :  (parameter) => {function body}
+	
+});
+	
+____________________________________________________________________________________
+
+
+Export and Import module ; 
+
+write function in one file and then at the end of that file , write , module.export = function_name;
+in another file , where you want to import this function , just use require("./filename"); 
+
+// how to send multiple functions ? -> dont send functions , send object.
+
+const add = (a,b) => {return a+b;}
+const mul = (a.b) => {return a*b;}
+
+module.exports.add_function = add ;			// to use , import as above .. const oper = require("./filename");
+module.exports.mul_function = mul ;  			// oper.add_function(a,b)	... same for mul_function;
+							// add_function , mul_function are the names to be used in other file.
+
+// but what if there are more functions ? will you write module,exports.... for all ? .. no, right!
+use object destructuring . const{add , sub , mul} = require("./filename");
+
+and in exporting file , use 
+module.exports = {add , sub , mult} ; 		// passing properties instead of functions . 
+in inporting file , use object destructuring . const{add , sub , mul} = require("./filename");			// then add(...) 
+														// names must be same. order doesnt matter.
+
+
+** how exactly import export works ? ..
+
+whatever we write in javascript , it gets wrapped in a function.. wrapping in (___) . similarly  , import and export are done . ex : 
+
+( function(exports , require , module , __filename , __dirname){
+	const a = require("fs");		// this is how it gets wrapped. 
+	module.exports = {add , sub , mul}	// same as above.				
+})													
+
+whatever we write in nodejs gets private due to IIFW (immediatly invoked function expression). 
+expression inside IIFE can be used outside wrapping too . super protected. 
+
+console,log(__filename , __dirname)		// works due to IIFE . 

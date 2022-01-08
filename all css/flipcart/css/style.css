@@ -1,0 +1,144 @@
+@import url('https://fonts.googleapis.com/css2?family=Arvo&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@300&display=swap');
+
+:root{
+    --main-bg-color:#2874f0;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Arvo', serif;
+}
+
+header{
+    background-color: var(--main-bg-color);
+    font-size: larger;
+}
+
+
+
+/* to make navigation use nav ul as flex-box */
+nav ul{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;   
+    height: 9.5vh;
+}
+
+nav{
+    display: flex;
+}
+
+.logo{
+    display: flex;
+    align-items: center;
+    
+}
+
+nav .logo img{
+    height: 25px;
+    width: 90px;
+    padding-left: 25px;
+}
+
+nav ul li{
+    list-style: none;
+    padding: 23px;
+}
+
+nav ul li a{
+    color: white;
+    text-decoration:none ;
+    font-family: 'Arvo', serif;
+    padding: 5px 10px;
+    border-radius: 4px;
+}
+
+nav ul li a:hover{
+    font-weight: bolder;
+    font-family: 'Arvo', serif;
+    background-color:rgb(50, 46, 238);
+}
+
+nav .search{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-left:10px ;
+
+}
+
+#searchbox{
+    width: 450px;
+    height: 35px;
+    font-weight: bold;
+    font-family: 'Roboto Slab', serif;
+    outline: none;
+    padding-left: 10px;
+    margin: 0px 50px;
+    border-radius: 5px;
+    place-content: "search here";
+}
+
+#search-img{
+    width: 21px;
+    height: 21px;
+    position: relative;
+    right: 82px;
+}
+
+
+.container{
+    min-height: calc(100vh - 58px - 12vh);  /*height of all header + main + footer will be 100*/
+
+}
+
+.slider{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 10px 20px;
+}
+
+.slider img{
+    height: 55vh;
+    width: 80vw;
+}
+
+.card-container{
+    background-color: rgb(241, 238, 234);
+    height: 100vh;
+    margin: 20px 25px;
+    overflow: scroll;
+}
+.card-heading{
+    display: flex;
+    flex-direction: column;
+}
+
+.card-line{
+    display: flex;
+    justify-content: space-evenly;
+    overflow: scroll;
+}
+
+.card{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    padding: 5px;
+}
+
+footer{
+    background-color: black;
+    color: white;
+    height: 8vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Arvo', serif;
+}
+

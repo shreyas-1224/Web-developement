@@ -1,0 +1,84 @@
+MONGODB : NoSQL type(store data in the form of document). uses BSON (binary-JSON) to query database. space effiencient.
+
+create database/ already created database : 
+	use database_name 
+
+  mysql			   |        mongodb 
+	tables	       |	    collections
+	rows		   |		documents
+	columns		   |		fields
+
+
+create mondodb database  : 		use database_name		// created
+insert values            : 		db.database_name.insertOne({name : "shreyas", address : "sangwade" , partner : "pooja"})
+read table 		 : 		db.database_name.find().pretty()
+						{
+ 						       "_id" : ObjectId("610c0216c063534b59639148"),
+        					       "name" : "shreyas",
+ 						       "address" : "sangwade",
+        					       "partner" : "Pooja"
+						}
+
+____________________________________________________________
+	
+			C-U-R-D 
+
+insert documents in database (C)
+
+there are two ways to insert documents in database : 
+1) insertOne() : insert only one document.		-- > db.database_name.insertOne({____})
+
+2) insertMany() : insert many documents .at a time      ---> db.database_name.insertMany([{__} , {___} , {___}])
+		  parameter is array of objects(documents)
+
+
+_____________________________________________________________
+
+READ (query all the documents) (R)
+
+syntax : db.collection_name.find(query , projection)
+
+db.shreyas.find({name : "nodejs"}).pretty()
+{
+        "_id" : ObjectId("610c00c96241c45ebecbc962"),				// havent used projection.
+        "name" : "nodejs",
+        "type" : "front-end",
+        "total" : 20
+}
+
+to show only name field  : use projection
+
+db.shreyas.find({name : "nodejs} , {name : 1}) 			// 1 represents true . it will print onlly name field
+{ "_id" : ObjectId("610c00c96241c45ebecbc962"), "name" : "nodejs" }		// id is compulsary
+
+name : 0 will print everything except name field . 
+
+* get field without id : 	---> db.shreyas.find({name : "nodejs"} , {_id : 0 , name : 1})
+
+* get limited number of doc : 	----> db.shreyas.find().limit(number_of_docs)
+				      db.shreyas.findOne() 		// only 1
+
+* get the second doc  :		----> db.shreyas.find().limit(1).skip(1)	// will skip first
+
+_________________________________________________________________
+
+UPDATE (U)
+syntax : db.collection_name.updateOne(filter , update)		// will update first
+	 db.collection_name.updateMany(filter , update)		// will update all the cases which passed filter.
+
+eg : db.shreyas.updateOne({name : "nodejs"} , {$set : {name : "full stack" , total : 40}})
+
+we can also add fields and value in the docs. 	just add them in $set : {___}
+
+
+__________________________________________________________________
+
+DELETE (D)	
+syntax : db.collection_name.deleteMany(deletion_criteria)
+
+eg : db.shreyas.deleteMany({name : "mern"})
+
+delete a collection : db.collection_name.drop()
+delete a perticular field : 	db.collection_name.aggregate([{$unset : "name"}])
+
+___________________________________________________________________

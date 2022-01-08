@@ -1,0 +1,15 @@
+fontawesom : use for icons
+	    to change size of icon , use .fa-2x or size of your own*x; 
+	    <script src="https://kit.fontawesome.com/0b0401b561.js" crossorigin="anonymous"></script>
+
+bootstrap cdn : 
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+	
+javascript/jquery for bootstrap :
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+    	integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+    	crossorigin="anonymous"></script> 
+
+jquery cdn : <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+MDN web-docs : referance site .

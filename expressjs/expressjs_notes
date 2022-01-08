@@ -1,0 +1,182 @@
+express js is a simple web application framework which provide simple application
+it is a framework of nodejs.
+just like jquery to javascript , express is to nodejs.
+
+
+// create an express app, we need express function and its module
+
+const express = require('express');
+const app = express();      
+
+// creating a server. 
+
+app.get('/' , (req , res) => {                                  // just by simple app.get(..) we can route.
+    res.send("hello from express and of course shreyas!");      // no need to use req.url in if else, like we did in nodeserver.
+});
+
+app.get('/about' , (req ,res) => {
+    res.status(400);                                // setting status code to 400.
+    console.log(res.statusCode);                    // to get the status code.
+    res.setHeader('content-type','text/html');      // changing header (file type.)
+    res.send("<h1>hello from about page</h1>");
+});
+
+app.listen(8000 , ()=>{
+    console.log("listning");
+});
+
+___________
+instead of reading file and then writing on res.send().... just res.sendFile(file adress);
+___________
+
+
+/*This app starts a server and listens on port 3000 
+for connections. The app responds with “Hello World!” for requests to the root URL (/) or route.
+ For every other path, it will respond with a 404 Not Found. 
+ 
+to create routing , use app.get(route  , callback);
+
+to create API , these are most used method.
+get - to read data from server
+post - to create a new data
+put - to update the data
+delete - to delete the data 
+
+in app.get(route , (req , res) => {});
+callback function has 2 parameters, request(req) and response(res).
+the request object(req) represents the http request and
+has properties for the request query string , parameters , body and
+http headers , etc.
+
+CURD opration - create , update , read , delete.
+ */
+
+ // __________________________ how to send json/html data as a response using express _________________
+
+    
+
+const fs = require('fs');
+// creating a server using app. 
+
+const home_data = fs.readFileSync("home.html");     // readig synchronously.
+
+app.get('/about' , (req ,res) => {
+   console.log(res.statusCode);                    // to get the status code.
+   res.setHeader('content-type','text/html');      // changing header (file type.)
+   res.send(home_data);
+});
+
+// listen to the app.
+
+to send json data , just send object or array of an object in res.send(__)  =; express will convert 
+it into json !
+or use res.json() -> it will convert everything into json.
+
+________________________________________________________________________________________________________
+
+Serving html/json/css/jsvascript files to express.
+only static site. not for dynamic.
+
+make a folder for your express file. 
+then make another folder and name it public.
+in that public file, put all your html , css and other files for static data.
+
+const express = require('express');
+const app = express();
+const path = require('path');
+
+staticPath = path.join(__dirname , "../","public");     //absolute path
+
+// buiting middlewere. express.static(path of public folder);
+
+app.use(express.static(staticPath));
+
+app.get('/',(req,res) => {
+    res.send();
+});
+
+app.listen(8000 , () => {
+    console.log("universe is listenig shreyas");
+});
+
+________________________________________________________________________________________________________
+template engine are used to add dynamic data. ex are : pug , moustache , ejs
+they are like html with more power.
+
+we will use handerbars.js . to use it better , theres is a view engine hbs !
+to use template engine : 
+
+in your main directory , there should be a folder 'views' . 
+in view , create any file , index.hbs. 
+
+first you have to set view engine.    
+then render the response in the server 
+
+to set the view engine . 
+
+*/
+
+// creating app..
+
+const absPath = path.join(__dirname , "../views/index.hbs");
+
+app.set('view engine' , 'hbs');    // setting template engine.
+
+app.get('/' , (req ,res) => {
+    res.render(absPath ,{
+        channel_name : "shreyas patil",     
+    });
+});
+
+// server  listening
+
+// template engine route
+// to change the name of views directory , use app.set("views" , "path of new dire")
+
+________________________________________________________________________________________________________
+
+partials in expressjs. 
+basically , if have same component on diff page or need same component again , 
+instead of copying the code , use partials to call the same component;
+in react , theres same thing called components.
+
+// partials in expressjs
+// create paritals folder and register with hbs. 
+// inside partials , create the files with useful codes.(repeating one).
+// variable is similar as template engine expect  , {{>filename}};
+
+create app.
+const hbs = require('hbs');             // aquire hbs.
+
+absPath = path.join(__dirname , '../templates');         // abs path to templates folder
+
+app.set('view engine' , 'hbs');         // setting view engine
+
+hbs.registerPartials(path.join(absPath , '/partials'));    //register partials.
+
+app.get('/' , (req , res) => {
+    res.render(path.join(absPath , '/views/index.hbs') , {
+        Disabled : "shreyas"
+    });
+});
+
+app.get('/contact' , (req , res) => {
+    res.render(path.join(absPath , '/views/index.hbs') , {});
+    //res.render(path.join(absPath , '/views/contact.hbs'));
+});
+
+app.listen(8000);
+
+/* in nutshell , first create partials and in that partials , create files with reusable code.
+then in view , use this partials as , {{>filename in partials}} .
+
+register the partial folder first with hbs. also register template engine.
+
+use it . to run hbs , js file on nodemon use , nodemon index.js -e js , hbs
+
+*/
+________________________________________________________________________________________________________
+
+to add error page in dynamic site , we have a universal term in app.get().
+
+app.get("*" , (req , res) => {});       // make sure it should be at the end.

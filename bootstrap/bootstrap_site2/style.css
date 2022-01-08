@@ -1,0 +1,68 @@
+@import url('https://fonts.googleapis.com/css2?family=Otomanopee+One&display=swap');
+
+
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+.ul_custom{
+    margin-right: 36px ;
+}
+
+.list_custom{
+    padding: 1px 0.3rem;
+}
+
+.navbar_custom{
+    position: -webkit-sticky;
+}
+
+.heading{
+    background-image: url("office_bg.jpg");
+    background-size: 100% 100%;
+    background-attachment: fixed;
+    width: 100%;
+    height: 60%;
+    text-align: center;
+}
+
+.header_title{
+    margin-top: 10px;
+    padding: 15% 7% 10% 7%;
+}
+
+h2{
+    font-size: 2rem;
+}
+
+h1{
+    font-size: 3rem;
+}
+
+.services_title{
+    padding: 3% 7%;
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+.card{
+    margin: 5px auto;
+}
+
+.card i {
+    /*display: inline-block;
+    border-radius: 60px;
+    padding: 0.3em 0.6em;
+    color: orange;
+    outline: none; */
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    background-color:orange;
+    color: white;
+    margin-left: 72px;
+    padding-top: 36px;
+    margin-top: 6px;
+  }

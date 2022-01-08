@@ -1,0 +1,66 @@
+const express = require('express');
+const app = express();
+
+app.set('view-engine' , 'ejs') ;            // setting view-engine..just like hbs
+
+just like hbs , all ejs file should be inside views directory.
+
+app.get('/' , (req , res) => {
+    res.render('index.ejs' , {
+        name : "shreyas pradeep patil",
+    });                // rendering index.ejs from views directory
+});                    // res.render("file in views" , object with varibles and values)
+                       // in hbs , we used {{varible , }}... in ejs we use <%= varible_name%>
+
+// listening to the server
+
+best thing about ejs is , we can write js code in html using tag.
+like , for conditonals or loops , use <% tag.
+
+eg : in ejs file , 
+_______________________________________________________
+
+passing data from wepage to server
+
+var items = [];
+
+app.use(express.urlencoded({extended:true}))        // instead of body-parser
+
+app.get('/', (req, res) => {
+
+    var options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+    var today = new Date();
+    var day = today.toLocaleDateString("hi-IN", options); // शनिवार, 17 सितंबर 2016
+
+    res.render('list.ejs', {
+        kindOfDay: day,
+        newListItem : items         
+    });
+
+});
+
+app.post('/' , (req , res) => {
+    items.push(req.body.newItem);
+    res.redirect('/');                  
+});
+
+when page is loaded and user enter something , post request is triggered and newItem is set to 
+the value entered by user. then home route redirect to 
+home rout and triggers app.get and render both variable.
+
+app.listen(8000, () => {
+    console.log("the universe is listening to you !");
+});
+
+_______________________________________________________________
+
+apply premade css to the ejs is same as for hbs. create public folder and put all your static files.
+then use , app.use(express.static(public folder path))
+ 
+_______________________________________________________________
+
+
+to use partials , no need to set partials like hbs , we can directly add partial files in views
+and include them in ejs files. 
+
+to include them , use <%- include(file path) -%>

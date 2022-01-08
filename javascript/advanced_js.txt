@@ -1,0 +1,100 @@
+/* Promise in a js is an object.    it has a callback function.
+   - resolve
+   - reject
+   - pending
+
+*/
+
+
+function func1(){
+    return new Promise((resolve , reject) => {
+        const error = true ; 
+        if(error){
+            resolve("successful");              // parameters are optional
+        }
+        else{
+            reject("not successful");
+        }
+    });
+}
+
+func1().then((no_error) => {
+    console.log(no_error);             // then is for promise resolved.whatever in then will run at place of reject.
+
+}).catch((error) => {                   // catch is for promise rejected.whatever in catch will run at place of reject. 
+    console.log(error);
+})                                      // calback function in both is ntg but 
+
+
+// basically its like error handling or even threading kind of!
+
+___________________________________________________________________
+
+aync and await : 
+
+use : work with promises gets simple.
+whenever there is aync before a function , that function always returns a promise. 
+
+instead of using then and catch on promise , use await inside async. its just like then 
+
+__________________________________________________________________
+
+fetch in javascript ; 
+
+console.log("file has been started");
+
+const getdata = () => {
+    url = "javascript.txt";                 // fetch returns promise. need to use two then.
+    fetch(url).then((response) => {
+        return response.text();               // returning another promsise.
+    }).then((data) => {console.log(data);})
+}   
+
+getdata();
+
+
+first define url . 
+then fetch(url).then(()=>).then(()=>) ;
+____________________________________________________________________
+
+
+small comaparison between async/await and normal promise.
+
+
+                              ___________ old fetch and promise method ______________
+
+
+const api = "https://type.fit/api/quotes" ;
+
+const getQuote = () => {
+   
+    fetch(api).then((response) => {
+        return response.text();
+    }).then((data) => {
+        console.log(data)				// data will have our apidata.
+    });
+    
+}
+
+
+
+                              __________new async and await method._____________________
+
+
+const getQuote = async() => {               // return promise.
+
+    let data = await fetch(api);                       // fetch also returns promise so awaiting it.
+    let realData = await data.json();			// realdata will have our apidata.
+    
+}
+
+this is the syntax to use fetch. 
+
+
+
+
+getQuote();
+
+
+so instead of using old promise method (fetch(url).then(()=>{}).then(()=>{})) , its simple to use await fetch(url) and then await data.json();
+______________________________

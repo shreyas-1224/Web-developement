@@ -1,0 +1,59 @@
+*************** grid ******************
+
+.row : for row
+.col : for column 
+.col-6 : half of the row, full row is 12 , and 6 is half. similarly for other quantities . 
+.col-md-6 : for anything lesser than medium side , this column will take full screen , otherwise 50%(6).(responsive)
+.col-lg-3 col-md-4 col-sm-6 : till its above large , make size 3
+	                      between medium and large , make size 4
+			      between small and medium , make size 6
+ 			      below small , make size 12(default)
+
+to make space between columns when they are one down another , give padding(mostly 3% 2%) ;
+
+**************Containers **************
+
+.container  : resposive container with default margin
+.container-fluid : resposve container with no default margin 
+
+************* Button ******************
+
+.btn : button size and bit style
+.btn-light : light color button
+.btn-outline-successs : green color after hovering
+.btn-lg : large button
+.btn-sm : small button
+.btn-block : take full width of card/parent
+
+************* Carousel(slide show kind of) *********************
+
+.carousal : changes to carasoul
+.carousal slide : changes to next as a slide(better to use this)
+data-interval : 1000  - 1000ms change
+
+************ cards *********************************
+
+to make card structure resposive and well padded ; first create a grid system , rows and column. then in each column create your card division
+.card : main card division 
+.card-header : card-header
+.card-body : card-body
+.card-footer : card footer
+
+*************** z-index and css stack ************************
+
+(only apply when no postion is defined or static position)
+position : absolute ,can ruin the html flow .  
+z-index : 1 = top on all elements
+z-index : -1 = bottom of all elements
+
+************** toggle collapse button ************************
+<button 
+	class="navbar-toggler" 
+	type="button" 
+	data-bs-toggle = "collapse" 
+	data-bs-target = "#collapse_navbar">		// id or class of the division to be collapsed.
+</button>
+
+use ids very sparingly. dont use them if you can use class in that space. 
+use ids for the section or bootstrap components where it is must need . 
+to get everythig in center , use text-center class.

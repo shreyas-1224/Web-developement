@@ -1,0 +1,40 @@
+<%- include('partials/header') -%>
+
+    <body>
+
+        <!-- lets use some javascript inside ejs -->
+
+        <div class="box" id="heading">
+            <h1>
+                <%= typeOfList %>
+            </h1>
+        </div>
+
+
+        <div class="box">
+
+            <% for(var i=0; i < newListItem.length ; i++) { %>
+                <form action="/delete" method="POST">
+                    <div class="item">
+                        <input type="checkbox" name="checkbox" value="<%= newListItem[i]._id %>" onChange="this.form.submit()">
+                        <p>
+                            <%= newListItem[i].task %>
+                        </p>
+                    </div>
+            <% } %>
+                </form>
+                <form action="/" method="post" class="item">
+                    <input type="text" name="newItem" autocomplete="off" placeholder="new item">
+                    <button type="submit" name="btn" value="<%= typeOfList %>">+</button>
+                </form>
+
+        </div>
+
+        <%- include('partials/footer') -%>
+
+
+            <script src="js/script.js"></script>
+
+    </body>
+
+    </html>

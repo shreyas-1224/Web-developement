@@ -1,0 +1,52 @@
+*{
+    box-sizing: border-box;
+}
+
+.container{
+    border: 2px solid back;
+    border-radius:25px ;
+    background-color: black;
+    color: white;
+    height: 60px;
+    margin: auto;
+}
+
+
+
+input{
+    float: right;
+    width: 8cm;
+    height: .9cm;
+    margin: auto;
+    margin-top: 15px;
+    margin-right: 1cm;
+    border: 2px solid black;
+    border-radius: 25px;
+    outline: none;
+    font-family:'Courier New', Courier, monospace;
+    font-size: larger;
+}
+
+a{
+
+    border: 2px solid black;
+    border-radius: 20px;
+    text-decoration: none;
+    color: white;
+    padding:6px;
+}
+
+a:hover{
+    color:antiquewhite;
+    background-color:rgb(34, 38, 39);
+}
+
+li{
+    padding: 15px 10px;
+    padding-left: 10px;
+    padding-right: 200px;
+    float: left;
+    width: 2cm;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-size: x-large;
+}

@@ -1,0 +1,429 @@
+/*printing techniques in javascript.
+
+console.log("hello shreyas");
+console.error("you cant do this ");
+console.warn("just stop there idiot shreyas");
+alert("i am alerting you one last time " );
+
+this is how we comment in a java script  */
+
+// var is globally scoped. so we dont use it more. instead of that we use let and const.
+
+//differance between let and const. both are similar to var but their scope is not global and you can change value of let but not const.
+
+____________________________________ javascript variables and the introduction _________________________________
+
+cont age=23;let year=2020;
+console.log("his age is " + age); //his age is 23 .
+console.log("this is "+ year) //this is 2020.
+
+// age=24;  //error saying assignment to the const varible.
+year=2021;
+console.log("this is now " + year);
+
+_____________________________________ Datatypes in javascript ____________________________________________________
+
+//javascript datatypes - strings , boolean , numbers , null , undefined, symbols.
+
+let name="shreyas";		// string
+const ismale=true;		//boolean
+const age=21.32;  		//float, double, integer all come in numbers category.
+const y = null 			// means it is empty
+let x = undefined;
+let z ; 			//both this and above lines means the same . undefined varible
+
+// to check the type , use typeof ____
+console.log(typeof age);  // number
+console.log(typeof ismale); //boolean.
+console.log(typeof y);  // object! how ? because in javascript . every thing is an object.
+
+
+console.log("" == null);   // false !
+console.log(false == null);// false !
+console.log('' == false); // true !
+
+//in javascript , null is an object and it is not equal to empty string or false boolean. bt false is equal to empty string. 
+
+________________________________________  strings in javascript _________________________________________________
+
+//string concatation. 
+
+let age=23;
+let name= "Shreyas";
+
+console.log("hii my name is "+ name + " and i am " + age); 
+//           hii my name is shreyas and i am 23 ; 
+
+//Template strings 
+console.log(`hii my name is ${name} and i am ${age}`);
+//           hii my name is shreyas and i am 23 ;
+//similar to f string in python .. print(f"hii my name is {name}");
+
+let str="hey there, I am shreyas pradeep patil and i study in college of engineering pune."
+
+//Some strings properties. Properties do'nt have parenthesis. only methods and functions have parenthesis.
+console.log(str.length); //81
+console.log(str.toUpperCase()); // it is a function.Its temporary.
+console.log(str.toLowerCase());
+
+//substring in javascript.          string.substring(start_index, end_index)
+console.log(str.substring(0,12));   //"hey there, I"
+console.log(str.substring(3,))      //whole string after index 3
+//console.log(str.substring( ,23))     //this is wrong.;
+
+//splitting the string in javascript. string.split('split token');
+
+str="hello Yash";
+console.log(str.split(''));  // ["h", "e", "l", "l", "o", " ", "Y", "a", "s", "h"]
+
+console.log(str.split('l'); // ["he", "", "o Yash"]
+
+________________________________________ Arrays in javascript __________________________________________________
+
+//arrays hold the multiple values. and array elements need not to be of same dataypes.
+
+const listt= new Array(1,2,3,4,5);  // using constructor
+console.log(listt);  // [1,2,3,4,5] 
+
+const list=[1,2,3,4,5,'shreyas',true];  //[1, 2, 3, 4, 5, "shreyas", true]
+console.log(list);
+
+// some array properties.
+
+console.log(list[2,5]);  // print element at index . [2, 5]..print @5
+list[0]="pradeep "
+console.log(list);       //[1, 2, 3, 4, 5, "pradeep ", true]
+
+// important array properties.
+list.push("patil")        //push at the end.
+list.unshift("welcome")   //add at the biginning.
+list.pop()                //pops last element.
+console.log(list); 
+console.log(Array.isArray(list));   //checks if there is any array with this name.
+console.log(list.indexOf(true)); //gives the index of that element.
+
+________________________________________ Objects literal in Javascript___________________________________________
+
+
+//object literals in javascript . they are nothing but the key value pairs.Like dictionary in python.
+
+const person={
+  name:"shreyas",
+  age:19,
+  hobbies:["reading", "music","videogames"],
+  address:{
+    area:'shivajinagar',
+    city:'Pune',
+    state:'Maharastra'
+    
+  }
+ }
+
+console.log(person) // will print above key value pairs.
+console.log(person.name);    // object.key will print its value. (shreyas)
+person.name="Yash";
+console.log(person.name,person.address);  // can print both.
+
+// destructuring the object. 
+
+const {name , hobbies} = person;
+console.log(name,hobbies); //"Yash" ["reading", "music", "videogames"]
+
+//destructuring is simple... just add varibles in the curly braces and assign the object.
+// if there is an object inside an object then , 
+
+const {address:{city}}=person;
+console.log(city) ;    // pune
+
+// we can add more keys . 
+person.email ="pshreyas1224@gmail.com";  // will add email key .
+
+//Array of objects.
+
+const friends=[
+  {
+  name:"Sanket",
+  branch:"entc",
+  place:"Mumbai"
+  } ,
+  {
+  name:"Sharvil",
+  branch:"Mechanical",
+  place:"Amaravati"
+  },
+  {
+  name:"Sourabh",
+    branch:"Mechanical",
+      place:"Kolhapur"
+  }
+]
+
+console.log(friends[1].name);  // sharvil
+
+// somthings about JSON. JSON has the same format except every key and value is in double quotes. we can convert it ..
+
+const json= JSON.stringify(friends);
+console.log(json);
+/*
+[{'name':'Sanket','branch':'entc','place':'Mumbai'},
+ {'name':'Sharvil','branch':'Mechanical','place':'Amaravati'},
+ {'name':'Sourabh','branch':'Mechanical','place':'Kolhapur'}]   */
+
+________________________________________ Loops in javascript ___________________________________________________________________
+
+// for loops 
+
+for(let i=0;i<10;i++){
+  console.log(`this is number ${i}`);
+}
+
+//while loop
+let i=0;
+while(i<100){
+  i=i*5;
+  console.log(`${i}`);
+  break; // it will break the loop.
+}
+
+
+
+// foreach , map and filter in javascript. 		array.____(function(variable_name){_________________})
+
+//foreach can iterate through the array in better way. the structure for foreach is   array.foreach(function(variable_name){});
+
+const array=[2,3,4,5,6,7,8];
+
+array.forEach(function function_name(i){      //here , i will the indivisual array element.
+    console.log(i); 
+  }
+)
+
+
+//map in javascript. map returns a new array.structure is similar as forEach. it returns an array . 
+
+const newrray=array.map(function function_name(i){
+  return i**2 ;
+})
+
+console.log(newrray);  // [4, 9, 16, 25, 36, 49, 64]
+
+
+
+//filter in javascript is same as the map but here we can put a condition.
+//structure is similar to map.
+
+const array=[1,2,3,4,5,6,7,8];
+const newarray=array.filter(function function_name(i){
+  return i%2==0;   //it will return only even elements.
+});
+
+console.log(newarray);   //[2, 4, 6, 8]
+
+___________________________________________ Conditionals in JavaScript ______________________________________________________
+
+//conditionals in javascript.
+
+//first lets learn about operators in javascript.
+
+|| : or operator && : and operator , ^ : ex-or operator(when both are differant).
+
+x == y : it will just check the value of x and y and returns true if they are same. i.e, let x=2 and let y='2' . x is number while y is a string. but x==y
+is always true regardless of their differant datatypes.
+
+x===y : it will check both values as well as datatypes. it will returns false 
+if values are equal but datatypes are differant.
+*/
+
+let x=10;
+let y='10';
+
+if(x==y){
+  console.log("it is a double operator");   //this will be excuted.
+}
+else {
+  console.log("same datatype");
+}
+
+if(x===y){
+  console.log("same datatype");   // no execution.
+  
+}
+else if (x==y){ 
+  console.log("same value");     // this will be excuted.
+}
+else{
+  console.log("differant value."); 
+}
+
+// we can also try nesting.
+
+//turnary operator.   varible= condition ? if true : if false ;
+
+let x="shreyas" ;
+const y = x ==="shreyas" ? 12 : 23 ;   //console.log(y);   //12
+
+_____ switch case _________
+
+
+//switch case in javaScript. Completely similar to C language.
+
+const color="rd" ;
+
+switch(color){
+  case "red":
+    console.log("This is red color");   
+    break;
+    
+  case "blue":
+    console.log("This is blue color");
+    
+  default:
+    console.log("No matching");
+    break;
+  
+}
+
+____________________________________________ Functions in javascript ______________________________________________
+
+function add(a,b){
+    return a+b;
+}
+
+console.log(add(12,12));   // 24 
+
+console.log(add("shreyas" ,"patil"));   // shreyaspatil
+
+// ARROW OPERATOR IN JAVASCRIPT is similar as lambda function where our function content is of single line. varible= (parameters)=>.....
+
+const value = (a,b)=> a+b;   // it will return a+b. no need to use return keyword.
+console.log(value(12,45));   // 57.
+
+__________________________________________ OOPS in javaScript _____________________________________________________
+
+// object oriented programming in javaScript.
+
+oop is used to create and object and then assign some methods to it. Just like python, we will first initiate the object and then assign methods to it.
+structure : 
+
+function class_name(parameters){
+  initiate the parameters.
+  methods.
+}
+
+*/
+
+//Constructor function ; 
+function person(name,dob,good,bad){
+  this.name=name;
+  this.dob=new Date(dob);
+  this.good=good;
+  this.bad=bad;
+  
+  
+}
+
+// in python, we intitated the object in def __init__(params): self. .....
+// here we will use this keyword inside function and also methods in same function.
+
+//instantiate object.
+let firstperson=new person("Shreyas","6-19-2000","infinite potential","alot..");
+
+console.log(firstperson);   //person {name: "Shreyas", dob: Invalid Date, good: "infinite potential", bad: "alot.."}
+
+let firstperson1= new person("Pooja","12-12-1999","beautiful person","hate dogs");
+console.log(JSON.stringify(firstperson1));
+//"{'name':'Pooja','dob':'1999-12-11T18:30:00.000Z','good':'beautiful person','bad':'hate dogs'}"
+
+// adding methods to the 0bjects. same like python.
+
+function person(name,last,dob){
+    this.name=name;
+    this.last=last;
+    this.dob=new Date(dob);
+    
+    this.getdate= function(){      //this is the method.
+        return this.dob.getDate();
+    }
+  
+     this.getname=function(){
+        return `${this.name} ${this.last}`;
+        
+    } 
+}
+
+let yash=new person("shreyas" ,"patil","6-19-2000");
+
+console.log(yash.getdate());   //19. 
+console.log(yash.getname());   //"shreyas patil"
+
+//we can assign methods from outside of function too. use keyword prototype...
+//class.prototype.method_name=function(){}
+
+person.prototype.getBirthYear= function(){
+  return this.dob.getFullYear();
+}
+
+let yassh=new person("shreyas" ,"patil","6-19-2000");
+
+console.log(yassh.getBirthYear());   //2000.
+
+
+// ES6 prettier and better way to write a class. Same like python.
+
+class person {
+  
+  //constructor method. just like __init__() in python.Initialize all the variables.
+  
+    constructor(name, dob, habit){
+    this.name=name;
+    this.dob=new Date(dob);
+    this.habit=habit;
+  }
+  
+  //methods. we dont need to use "prototype" keyword.
+  
+  getBirthYear(){
+       return this.dob.getFullYear();
+  }
+  
+}
+  
+  const person1= new person("shreyas","6-19-2000","doing mistake.");
+  console.log(person1);
+
+console.log(person1.getBirthYear());  //2000.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

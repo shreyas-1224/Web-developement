@@ -1,0 +1,45 @@
+*{
+    box-sizing: border-box;
+}
+
+
+.container{
+    height: 344px;
+    width: 100%;
+    border: 2px solid red;
+    display: flex;
+
+    /* flex properties from container */
+    flex-direction: row;         /*feeling of items row , column , row-reverse.... */
+    flex-wrap: wrap;             /* responsive design .*/
+    flex-flow:row wrap ;         /* write direction and wrap in same line */
+    justify-content: center;     /* centers the items , otherwise all the margin thing..*/
+    justify-content: space-between; /*equal space between all the items .. */
+    justify-content: space-evenly;  /* equal space from end to end */
+    justify-content: space-around;   /* equal space on left and right */
+    align-items: center;            /* align items at the center... padding ka kharcha kam*/
+                                    /* align-items : flex start (top) , flex-end(from bottom) */
+                                    /* align-items: stretch ;   evenly height space */
+}
+
+.item{
+    background-color: tomato;
+    margin: 2px;
+    padding: 10px;
+    width: 100px;
+    height: 200px;
+    border: 1px solid green;
+
+}
+
+#item-1{
+    /* flex properties for flex items , they are mostly given to indivisual item */
+    /*order: 3;               /* first block will move to the last */
+    /*flex-grow: 2;           /* will grow twice in width */
+    /*flex-shrink: 2;         /* will reduce by 2 ... use for perticular id */
+    flex-basis: 100px;        /* changes dimension of flex-item , when flex direction is row , its width , else its height 
+
+    flex: grow shrink basis;   saves line*/
+    align-self: flex-end;        /* cover height either flex-start or center or flex-end */
+}
+
