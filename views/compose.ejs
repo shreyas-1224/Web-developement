@@ -1,0 +1,21 @@
+<%-include("partials/header")-%>
+
+    <h1 style="color: brown;">
+        Compose Your Thoughts.
+    </h1>
+    <form action="/compose" method="post">
+        <div class="form-group">
+            <label for="Title" style="margin-top:2px ;">Title</label>
+            <textarea name = "title" class="form-control"  style="border-color: rgb(98, 96, 4);" rows="1" cols="20"></textarea >
+        </div>
+        <div class="form-group">
+            <label for="Title" style="margin-top:2px ;">Content</label>
+            <textarea name = "content" class="form-control" style="border-color: rgb(98, 96, 4);" rows="5" cols="20"></textarea>
+        </div>
+        <div class="form-group">
+            <button class="btn btn-primary" type="submit" name="submit">Post</button>
+
+        </div>
+    </form>
+
+<%-include("partials/footer")-%>

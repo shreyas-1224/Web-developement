@@ -1,0 +1,28 @@
+{
+  "name": "ejs-challenge",
+  "version": "1.0.0",
+  "nodemonConfig": {
+    "ext": "js,ejs,css"
+  },
+  "description": "blog website for everyone. Simple",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Shreyas Pradeep Patil",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.20.1",
+    "ejs": "^2.7.4",
+    "express": "^4.18.2",
+    "lodash": "^4.17.21"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/shreyas-1224/Blog.git"
+  },
+  "bugs": {
+    "url": "https://github.com/shreyas-1224/Blog/issues"
+  },
+  "homepage": "https://github.com/shreyas-1224/Blog#readme"
+}
