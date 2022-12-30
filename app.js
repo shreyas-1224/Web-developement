@@ -29,8 +29,10 @@ app.get("/posts/:id" , (req , res)=>{
         title : id , 
         content : posts[i].content  
       });
+      res.end();
     }  
   }
+  res.render("error" , {});
   
 });
 
