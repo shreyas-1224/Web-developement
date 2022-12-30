@@ -1,10 +1,7 @@
-//jshint esversion:6
-
 const express = require("express");
 const bodyParser = require("body-parser");
 const ejs = require("ejs");
 const _ = require("lodash");
-
 
 const app = express();
 
@@ -17,23 +14,30 @@ const posts = [];
 
 
 app.get("/" , (req ,res)=>{
-  res.render("home" , {posts : posts});
+
+  res.render("home" , {
+    quote : "shreyas", 
+    posts : posts});
 });
 
 
 app.get("/posts/:id" , (req , res)=>{
   const id = _.lowerCase(req.params.id);
-  for(let i = 0;i < posts.length; i++){
-    if(posts[i].title == id){
-      res.render("post" , {
-        title : id , 
-        content : posts[i].content  
-      });
-      res.end();
-    }  
+  let i = 0;
+  while(i < posts.length){
+    if(_.lowerCase(posts[i].title) == id){
+        break;
+    }
+    i++;
   }
-  res.render("error" , {});
-  
+  if(i == posts.length){
+    res.render("error" , {});
+  }
+  else{
+    res.render("post" , {title : id ,
+      content: posts[i].content
+    });
+  }
 });
 
 app.get("/about" , (req ,res)=>{

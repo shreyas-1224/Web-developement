@@ -1,19 +1,27 @@
+body{
+    font-family:"Cascadia Code";
+}
+
 .container-fluid {
     padding-top: 70px;
     padding-bottom: 70px;
 }
 .navbar {
-    padding-top: 15px;
-    padding-bottom: 15px;
+    padding-top: 13px;
+    padding-bottom: 11px;
     border: 0;
     border-radius: 0;
     margin-bottom: 0;
-    font-size: 12px;
+    font-size: 15px;
     letter-spacing: 5px;
+    background-color: #56d3d0;
 }
+
+
 .navbar-nav  li a:hover {
-    color: #1abc9c !important;
+    color: #182b6f !important;
 }
+
 
 .footer-padding {
 	padding-bottom: 60px;
