@@ -1,0 +1,10 @@
+keep your html css and js files inside public folder to use it with express static.
+keep you html file name as index and ntg else.
+index is default homepage
+
+you have to serve index.html from public with express middlewere. 
+you can include js script tag in hbs file. 
+
+partials are set using hbs.setPartials(folder path of partials)
+
+all hbs should be inside views folder. set view-engine to hbs.  

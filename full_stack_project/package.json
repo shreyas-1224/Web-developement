@@ -1,0 +1,16 @@
+{
+  "name": "full_stack_project",
+  "version": "1.0.0",
+  "description": "full stack project using node js , express js and frontend",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "shreyas pradeep padmashree patil",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1",
+    "hbs": "^4.1.2",
+    "requests": "^0.3.0"
+  }
+}

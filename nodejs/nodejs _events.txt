@@ -1,0 +1,52 @@
+// using events module. first create a class and then create a object to use.
+// best thing is , we can create our very own events. :)
+//always define events first and then use them . 
+
+const EventEmitter = require("events");
+
+const event = new EventEmitter();       
+
+
+// creating own event : 
+
+event.on("sayMyName" , ()=>{
+    console.log("my name is shreyas");
+});
+
+
+// firing event. 
+
+event.emit("sayMyName");                // output : my name is shreyas
+
+
+// we can fire multiple events of same name : 
+
+event.on("sayMyName" , ()=>{
+    console.log("my name is shreyas pradeep patil");
+});
+
+event.on("sayMyName" , ()=>{
+    console.log("my age is 21");
+});
+
+event.on("sayMyName" , ()=>{
+    console.log("my salary is 20 lakh per anum");
+});
+
+event.emit("sayMyName");
+/* ---> 
+
+my name is shreyas pradeep patil
+my age is 21
+my salary is 20 lakh per anum
+
+*/
+
+// registering and firing event with parameters ; 
+
+event.on("checkpage" , (number , msg)=>{
+    console.log(`page code is ${number} and page status is ${msg}`);
+});
+
+event.emit("checkpage" , 200 , 'ok');
+// output --> page code is 200 and page status is ok 

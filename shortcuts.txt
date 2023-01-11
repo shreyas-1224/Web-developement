@@ -1,0 +1,49 @@
+perfect way to use background image
+
+background-image: url("office_bg.jpg");
+    background-size: 100% 100%;
+    background-attachment: fixed;
+    width: 100%;
+    height: 50rem;
+
+______________________
+
+Button
+
+.btn_wa{
+    border: none;
+    padding: 0.4rem 0.8rem;
+    text-transform: uppercase;
+    border-radius: 2rem;
+    box-shadow: 0px 8px 6px -6px #000;
+    margin-top: 0.5rem;
+}
+
+_____________________
+
+post request
+
+create a form first.
+
+<form action="/" method="post">
+        <input type="text" name="new_item">
+        <button type="submit" name="btn">add</button>
+</form>
+
+inside express, import body-parser. that is used to handle get/post request from html to server
+// but in new version , u can use app.use(express.urlencoded({extended : true}); instead of bodyparser.
+
+
+app.post('/' , (req , res) => {
+	req.body.name;			// name is the one in html file.
+});
+
+
+______________________
+
+query parameters.
+
+app.get('/posts/:post_title' , (req , res) => {
+  console.log(req.params.post_tile);		// this will give whatever we write at post_title place.
+  res.redirect('/');
+

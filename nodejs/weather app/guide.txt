@@ -1,0 +1,7 @@
+first get the api.
+
+api key : 8e7c4c0021d5e94d2aab790ec8b5416c
+api : api.openweathermap.org/data/2.5/weather?q={city name}&appid={API key}
+
+part after question mark is q=... is called as query stream.
+api.openweathermap.org/data/2.5/weather?q=Pune&appid=b14425a6554d189a2d7dc18a8e7d7263

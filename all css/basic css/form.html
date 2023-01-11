@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Forms</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="javaScript.js"></script>
+    <meta name="keywords" content="html , js , css , forms">
+    <meta name="description" content="in this , we will learn about forms in html . They are veey important">
+</head>
+<body>
+    <header>
+        <h2>ENTRY FORM</h2>
+    </header>
+    <form action="backend.php">
+        <!-- action is where our form data will go 
+            name is the tag by which your backend will recognize the dat
+             id and class are used for css purpose
+             label uses id ;
+        -->
+        <div class="nametag">
+            <label for="name"> Name </label>
+            <input type="text" name="name " id="name" class="name">
+        </div>
+        <div class="rolltag">
+            <label for="roll">Roll no</label>
+            <input type="number" name="roll" id="roll" class="roll">
+        </div>
+        <div class="bdatetag">
+            <label for="bdate">Birthday</label>
+            <input type="date" name="bdate" id="bdate">
+        </div>
+        <div class="radiotag">
+            male <input type="radio" name="gender">
+            female <input type="radio" name= "gender">
+            other <input type="radio" name="gender" id="">
+        </div>
+        <div class="selecttag">
+            <label for="select">last job</label>
+            <select name="select" id="select">
+                <option value="ds" selected>data scientist</option>
+                <option value="wd">web devoloper</option>
+                <option value="ad">android designer</option>
+            </select>
+        </div>
+        <div class="abouttag">
+            <label for="about"></label>
+            <textarea name="about" id="about" cols="30" rows="10"></textarea>
+        </div>
+        <button class="buttontag">
+            submit here
+        </button>
+        <input type="reset" name="" id="resettag">
+    </form> 
+    
+
+    
+</body>
+</html>

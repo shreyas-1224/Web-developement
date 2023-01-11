@@ -1,0 +1,12 @@
+npm : node packaging manager 
+
+to use , write npm init on command line . It will create a json file where all records will be saved. 
+
+to install modules , use npm I chalk 		// chalk module will be installed. to use, import chalk and the use its properties like other
+						// modules . 
+
+GLobal npm module : we are using local npm module which are useful for that folder only. 
+dlobal npm module can be used anywhere.
+
+Nodmon in npm : it is just like live server to browser but to node. just save and see the changes in result on the terminal . 
+

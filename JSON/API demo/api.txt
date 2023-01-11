@@ -1,0 +1,26 @@
+API : appication programming interface 
+      basically provide us to request services from other apps. 
+
+CREATING SIMPLE OWN API : 
+
+first created server then if url === api , we will write our json data on web page. 
+
+else if(req.url === "/userapi"){
+        fs.readFile(`${__dirname}` + "\\" + "jsn.json" , 'utf-8' , (err , data)=>{
+            res.write(data);
+            res.end();										// we have used asynchrous module . but rather this
+            console.log(err);									// try to use synchrounous . 
+        });
+}
+
+
+before creating server : 
+
+newObj = JSON.parse(readFileSync(`${__dirname}` + "\\" + "jsn.json" , 'utf-8'));
+
+else if(req.url === "/userapi"){
+        res.writeHead(200 , {"content-type : "application/json"});		// need to change doc type.
+	res.write(newObj[index]);						// data get read only once.
+}
+
+

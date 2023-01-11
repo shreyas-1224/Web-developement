@@ -1,4 +1,5 @@
 {
+<<<<<<< HEAD
   "name": "ejs-challenge",
   "version": "1.0.0",
   "nodemonConfig": {
@@ -27,4 +28,15 @@
     "url": "https://github.com/shreyas-1224/Blog/issues"
   },
   "homepage": "https://github.com/shreyas-1224/Blog#readme"
+=======
+  "name": "web-devolopement",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "shreyas",
+  "license": "ISC"
+>>>>>>> 942c65937bf1ceafcd1aca9d9c9f94cf3aa824d9
 }

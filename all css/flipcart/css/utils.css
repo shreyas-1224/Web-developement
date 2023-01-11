@@ -1,0 +1,14 @@
+.text-center{
+    text-align: center;
+}
+
+.flex-all-center{
+    display: flex;
+    justify-content: center;
+    align-items: center;   
+}
+
+.heading{
+    margin-bottom: 5px;
+    margin-top: 5px;
+}

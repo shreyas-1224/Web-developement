@@ -1,0 +1,79 @@
+
+document.querySelector("h1") ---> jquery("h1")----> $("h1");
+paste jquery cdn above javascript cdn
+
+
+$("document").ready(function(){
+    alert("document has been loaded");				// this will first load the google jquery and then look 								// into js
+})
+
+______________________________ Select element with jquery ______________
+
+in javascript we used , document.querySelector("");
+in jquery : 
+
+$("element") ;   ex : $(".btn");
+$("btn") --> will give all the btn class. there is no differance between one and many.
+
+__________________________________
+
+add class using jquery : 
+
+$("h1").addClass("new_class");
+$("h1").hasClass("new clas"); ---> tells if it has that class or not
+
+_________________________________
+
+manipuating text with jquery
+
+$("h1").text("hey there");
+
+to add tags also , use... $("h1").html('<em>hey there</em>');
+
+_________________________________
+
+manipulate attribute with jquery
+
+same code for get and set . just add another string , i.e changes attriute
+
+$("a").attr("href","www.google.com");		// will set href to google.
+$("a").attr("href") 				// will give href value.
+
+_________________________________
+
+addevent listeners using jquery
+
+// using javascript , document.querySelector(".btn").addEventListener("click" , function(){_________})
+// using jquery . 
+
+	$("h1").click(function(){
+	    $("h1").text("thanks for clicking"); 
+	})
+
+// in js , if there are more than more element , we have to use querySelectorAll and then using for loops for adding evenlistener.
+// in jq , same line as above will set event listener to all the elements. 
+
+// adding eventlistener to a button : 
+
+	$(".btn").click(function(){__________}) ;
+
+// adding eventlistener to keys : 
+
+	$("input").keydown(function(){_________}); 
+	$(document).keydown(function(){________});		// for entire document.
+
+//BUT THE BEST WAY TO add an event listener is : 
+
+	$("element").on(type , callback(){__________}); 
+
+___________________________________
+
+add or remove elements using jquery
+
+$("h1").after("<p>hey there...<p>");	// adds it after the h1
+$("h1").before("<p>hey there...<p>");	// adds it before the h1
+$("h1").prepend("<p>hey there...<p>");	// before the h1 but also in the h1
+$("h1").append("<p>hey there...<p>");	// after the h1 but also in the h1
+	
+tip : e.key gives the key that is pressed while e.which gives its askii number.
+

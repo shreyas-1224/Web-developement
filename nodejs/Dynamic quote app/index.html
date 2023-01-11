@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h3>get your quote</h1>
+    <h1 class="quote">"time is money"</h3>
+    <h2 class="author">"shreyas patil"</h2>
+    <button class = "btn">new quote</button>
+    <button class="tweet">tweet me</button>
+
+    <script>
+        const api = "https://type.fit/api/quotes";
+        let realData = "";
+        let rdn = 0;
+        const getNewQuotes = () => {
+            rdn = Math.floor(Math.random()* (realData.length));
+            document.querySelector(".quote").innerHTML = realData[rdn].text;
+            document.querySelector(".author").innerHTML =  realData[rdn].author === null ? "unknown" : realData[rdn].author;
+           
+        }
+
+        const getQuotes = async() => {
+            
+            try {
+                let data = await fetch(api);
+                realData = await data.json();
+                getNewQuotes();
+                // real data is array of objects of text and author.
+                
+
+            } catch (error) {
+                console.log(error);
+            }
+
+        }
+
+        const tweetMe = () => {
+            const tweet_url = "https://twitter.com/intent/tweet";
+            window.open(`${tweet_url}/?text=${realData[rdn].text}-${realData[rdn].author}`);
+
+        }
+
+        document.querySelector(".tweet").addEventListener("click", tweetMe);
+        document.querySelector(".btn").addEventListener("click" , getQuotes);    
+        //console.log(realData[4].author);
+    </script>
+
+    
+</body>
+</html>

@@ -1,0 +1,100 @@
+/*
+nodejs streams : streams are objects the let you read data from source  or write data to a destination  , in
+continuous fashion. there are 4 types of streams in nodejs 
+
+1 : Readable - used for read option. 
+
+2 : Writable - write option.
+
+3 : Duplex - both read and write options.
+
+4 : Transform - A type of duplex stram where output is based on input.
+
+each type of stream is an EventEmitter instance and throws several events at
+differant instance of times. some commonly used event are : 
+
+data , end , error , finish.  
+
+just like event instance and we created sayMyName event. 
+
+*/
+
+// our challenge is to , read the data from server(stram_info.txt)
+// but not after completely loading it but in streamig manner.
+
+
+const fs = require("fs");
+const http = require("http");
+
+const server = http.createServer();
+
+// event registering for server. 
+
+_________________________ first way _________________________________________________
+
+this is the old way of streming where we completely read file first and then upload it . 
+
+server.on('request' , (req , res) => {
+    fs.readFile("stream_info.txt" , 'utf-8' , (err , data) => {
+        if(err)
+            return console.error(err);          
+        res.write(data.toString());
+        res.end();
+    })
+});
+
+
+
+________________________second way _________________________________________________
+
+// streaming mode . 
+// event registering on server
+
+server.on("request" , (req , res) => {          // request is an event on server
+    
+    const rstream =  fs.ReadStream("stream_info.txt");   // creating readable instance
+    
+    // using data event. 
+    rstream.on("data" , (chunkdata) => {
+        res.write(chunkdata);                   // chunkdata is the file loaded till now.
+    });
+
+    
+    // using end event. 
+    rstream.on("end" , () =>{
+        res.end();
+    });
+
+    // using error event.
+    rstream.on("error" , ()=>{
+        console.log("file not found");
+        res.end();
+    })
+
+    rstream.on("finish" ,() => {
+        res.write("thank you");
+        console.log("thank you for reading :)");            // dont know its use yet.
+    });
+
+
+});
+
+________________________ third and the best way ______________________________________
+
+server.on("request" , (req , res) => {
+	rstream = fs.ReadStream("input.txt");
+	rstream.pipe(res);				// writig the data on res.
+	
+	
+});
+
+
+_______________________ listening to the server _______________________________________
+
+
+server.listen(8000 , "127.0.0.1", () => {
+    console.log("listening");
+});
+
+
+

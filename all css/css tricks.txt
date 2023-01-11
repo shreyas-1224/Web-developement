@@ -1,0 +1,103 @@
+box sizing : border-box // changes the padding but width remains same;
+padding is done with respect to adjucent element
+margin is done with respect to body
+float is used to float the object to the right or to the left . 
+you must give width while using float.
+to avoid the overflow during float , use clear anf float option.
+
+inline/block
+inline do not take full line , block takes full space . 
+block needs width . 
+inline elements needs to be set inline-block to give width. 
+
+position : static (default) , absolute , sticky , fixed , relative . 
+
+relative : relative to its normal postion (use top , bottom , left , right to its relative first position)
+absolut : with respect to the body , (top , bottom , left and right)
+fixed : during scroll , that element will stick their .
+
+Flexbox : 
+	display = flex in container 
+	give width and height ; 
+	/* flex properties from container */
+    flex-direction: row;         /*feeling of items row , column , row-reverse.... */
+    flex-wrap: wrap;             /* responsive design .*/
+    flex-flow:row wrap ;         /* write direction and wrap in same line */
+    justify-content: center;     /* centers the items , otherwise all the margin thing..*/
+    justify-content: space-between; /*equal space between all the items .. */
+    justify-content: space-evenly;  /* equal space from end to end */
+    justify-content: space-around;   /* equal space on left and right */
+    align-items: center;            /* align items at the center... padding ka kharcha kam*/
+                                    /* align-items : flex start (top) , flex-end(from bottom) */
+                                    /* align-items: stretch ;   evenly height space */
+}
+
+**********
+
+ways to achieve responsive design : 
+	setting up viewport
+	use max-width/max-height
+	use css media-queries
+	using rem/vh/vw over pixels
+
+em : 20 em means 20 times the size of parent. 
+     padding will be that em times of font size. 
+
+rem : padding and size will be of parent . 
+
+vh : that percent of viewport height . vh for height , vw for width . 
+
+**********
+css media queries : 
+	when screen resizes , inject special css . 
+	just like if condition . 
+	syntax
+	@media(min-width : 300px) and (max-width : 500px){
+		#box{
+			display : block ; 
+			background-color : blueviolet;
+		}
+	} 
+
+
+
+*********** css psudo selctor
+
+element :: before{
+	content : "";
+	postion: absolute;
+}
+element :: after{
+	content:"";
+	postion:absolute;
+}
+
+postion of parent should be relative ; 
+postion of before and after , make it absolute; give full height and width.
+
+*******************************
+
+CSS TRANSFORM 
+
+transform : rotate(45deg)	// will rotate in 45 deg.
+transform : scale(3)		//size 3 times ; 
+transform : translate(x , y)    // translate x and y direction
+
+
+________________________________________________
+
+to give a background , use psudo selectors. 
+
+************************************************
+
+CSS GRID
+
+display: grid;          				/*container becomes 2d */
+    grid-template-columns: 300px 100px 100px;
+    grid-template-columns: 300px auto 100px;
+    grid-template-columns: 1fr 4fr 1fr; 4fr means 4 part of total width 
+    grid-gap;			gives margin and padding.
+    grid-auto-rows: 3fr;        assigns to the unspecified rows.
+
+________________________________________________
+

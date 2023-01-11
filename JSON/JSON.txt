@@ -1,0 +1,32 @@
+JSON : javascript object notation. json is lightweight format for 
+	storing and transporting data. 
+	json is often used when data is send from server to a web page.
+
+//creating object  .
+
+const bioData = {
+    name : "shreyas",
+    age : 45,
+    salary_pm : 2000000,
+};
+
+const json_data = JSON.stringify(bioData);
+console.log(json_data);        	 			// {"name":"shreyas","age":45,"salary_pm":2000000}
+
+/*how to call json data ? cant use , object_name.variable ; 
+convert json data into object . use JSON.parse(jason_data); */
+
+
+const obj_json = JSON.parse(json_data);
+console.log(obj_json);                 			// { name: 'shreyas', age: 45, salary_pm: 2000000}
+
+
+convert : object to json --> JSON.stringify(___);
+	  json to object --> JSON.parse(____);
+
+ 
+// TO write json data in some file , file extension must be .json
+
+
+
+

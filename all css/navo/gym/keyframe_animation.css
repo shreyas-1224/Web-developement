@@ -1,0 +1,61 @@
+.container{
+    background-color: red ; 
+}
+
+.box{
+    background-color: green;
+    height: 250px;
+    width: 250px;
+    position: relative;
+    animation-name: shreyas12;
+    animation-duration: 10s;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;   /*stays in end result of animation*/
+    animation-fill-mode: alternate;
+    /*animation-direction: forward , reverse  ,alternate ... ; */
+
+    animation-name: shreyas24;
+    animation-duration: 3s;
+    animation-iteration-count: 1;
+    animation-fill-mode: alternate;
+    animation-delay: 5s;
+
+}
+
+@keyframes shreyas12 {
+    from{
+        width: 200px;
+        
+    }
+    to{
+        width : 1400px;
+       
+    }
+}
+
+
+@keyframes shreyas24 {
+    0%{
+        background-color: green;
+        top:0px;
+        left: 0px;
+    }
+    25%{
+        background-color: teal;
+        top: 250px;
+        left: 0px;
+    }
+    50%{
+        background-color: brown;
+        top: 250px;
+        left: 250px;
+    }
+    75%{
+        background-color: darkmagenta;
+        top: 0px;
+        left: 250px;
+    }
+    100%{
+        display: none;
+    }
+}

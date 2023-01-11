@@ -1,0 +1,69 @@
+Nodejs can form its own server and it is recommended to use it . 
+
+Nodejs can form its own server and it is recommended to use it . 
+
+to use http server , we need to include http module. 
+
+createServer() method for request and response . 
+
+the request object can be used to get informaion about the curretn HTTP request
+e.g , url , request header , and data.
+
+const server = http.createServer((req , res) =>{
+	res.write("hello from other side);
+	res.end();
+});
+
+
+// how to know if requests are being made ? 
+// use listen . 
+
+server.lister(port_number , local_host , ()=>{});
+
+e.g :  server.listen(8000 , "127.0.0.1" , ()=>{
+	console.log("you are heard by the universe");		
+});
+
+_________________________________________________________________________
+
+Routing in nodejs server : 
+
+in our createServer (req , res) method , we can get the url by req.url 
+then , to rout .... simply use , if(req.url === "/url_last")		// eg : req.url === "/about" or req.url === "/contact"
+
+______________ create a server , rout it _________ listen to it. 
+
+// importint http 
+
+const http = require("http");
+
+// creating server and routing 
+
+const server = http.createServer((req , res)=>{					// creating
+	
+	if(req.url === "/about"){
+		res.write("routing to about page");
+		res.end;
+	}
+
+	else if(req.url === "/contact"){					// routing to contact and about etc....
+		res.write("routing to about page");
+		res.end;
+	}
+
+	else{
+		res.writeHead(404 , {"content-type" : "text/html"});		// if page not found , we have to change code to 404. 
+		res.write("<h1> error 404 : page not found </h1>");		// and content type should be changed to html/text ... default is document.
+		res.end();
+	}
+
+});
+
+
+// listening to request
+
+server.listen("800" , "127.0.0.1" , ()=>{
+	console.log("server is listening!");
+})
+
+__________________________________________________________________
